@@ -13,8 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        let feedViewController = UIViewController()
-        let profileViewController = UIViewController()
+        let feedViewController = FeedViewController()
+        let profileViewController = ProfileViewController()
 
         // Set up navigation controllers with view controllers
         let feedNavigationController = UINavigationController(rootViewController: feedViewController)
