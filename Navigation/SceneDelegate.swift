@@ -17,21 +17,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let profileViewController = ProfileViewController()
         let postViewController = PostViewController()
 
-        // Set up navigation controllers with view controllers
         let feedNavigationController = UINavigationController(rootViewController: feedViewController)
-        feedNavigationController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        feedNavigationController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         let profileNavigationController = UINavigationController(rootViewController: profileViewController)
-        profileNavigationController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
-        let postNavigationController = UINavigationController(rootViewController: profileViewController)
-        postNavigationController.tabBarItem = UITabBarItem(title: "Post", image: UIImage(systemName: "message.fill"), selectedImage: UIImage(systemName: "message.fill"))
+        profileNavigationController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
+        let postNavigationController = UINavigationController(rootViewController: postViewController)
+        postNavigationController.tabBarItem = UITabBarItem(title: "Пост", image: UIImage(systemName: "message.fill"), selectedImage: UIImage(systemName: "message.fill"))
 
 
-        // Set up tab bar controller with navigation controllers
+
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [feedNavigationController, profileNavigationController, postNavigationController]
         tabBarController.tabBar.backgroundColor = UIColor.white
 
-        // Set up window
+
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = tabBarController
         self.window = window

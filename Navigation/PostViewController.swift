@@ -1,3 +1,10 @@
+//
+//  PostViewController.swift
+//  Navigation
+//
+//  Created by Василий Васильевич on 14.02.2023.
+//
+
 import UIKit
 
 class PostViewController: UIViewController {
@@ -5,10 +12,10 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Установка заголовка контроллера
-        title = "Новый заголовок"
+        // Set the title of the view controller
+        title = "New Title"
 
-        // Установка цвета фона главного view
+        // Set the background color of the main view
         view.backgroundColor = UIColor.red
     }
 }
