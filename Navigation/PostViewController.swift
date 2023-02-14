@@ -39,5 +39,32 @@ class InfoViewController: UIViewController {
 
         // Set background color
         view.backgroundColor = UIColor.blue
+
+        // Add button to show alert controller
+        let showAlertButton = UIButton(type: .system)
+        showAlertButton.setTitle("Show Alert", for: .normal)
+        showAlertButton.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
+        showAlertButton.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
+        showAlertButton.center = view.center
+        view.addSubview(showAlertButton)
+    }
+
+    @objc func showAlert() {
+        let alertController = UIAlertController(title: "Alert", message: "This is an alert message", preferredStyle: .alert)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            print("Cancel button tapped")
+        }
+
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            print("OK button tapped")
+        }
+
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+
+        present(alertController, animated: true, completion: nil)
     }
 }
+
+
