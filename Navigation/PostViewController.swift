@@ -8,21 +8,21 @@
 import UIKit
 
 class PostViewController: UIViewController {
-    var post: Post?
+var post: Post? // определение переменной для хранения поста
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Add info button to navigation bar
-        let infoButton = UIBarButtonItem(title: "Info", style: .plain, target: self, action: #selector(infoButtonTapped))
+        // Добавление кнопки "Инфо" на навигационную панель
+        let infoButton = UIBarButtonItem(title: "Инфо", style: .plain, target: self, action: #selector(infoButtonTapped))
         navigationItem.rightBarButtonItem = infoButton
 
-        // Set background color
+        // Установка цвета фона
         view.backgroundColor = UIColor.red
     }
 
     @objc func infoButtonTapped() {
-        // Create and present InfoViewController modally
+        // Создание и отображение InfoViewController в модальном режиме
         let infoViewController = InfoViewController()
         let navController = UINavigationController(rootViewController: infoViewController)
         navController.modalPresentationStyle = .fullScreen
@@ -33,38 +33,36 @@ class PostViewController: UIViewController {
 class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Set title
-        title = "Info"
-
-        // Set background color
+        
+        // Установка заголовка
+        title = "Инфо"
+        
+        // Установка цвета фона
         view.backgroundColor = UIColor.blue
-
-        // Add button to show alert controller
+        
+        // Добавление кнопки для отображения контроллера UIAlertController
         let showAlertButton = UIButton(type: .system)
-        showAlertButton.setTitle("Show Alert", for: .normal)
+        showAlertButton.setTitle("Показать оповещение", for: .normal)
         showAlertButton.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
         showAlertButton.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
         showAlertButton.center = view.center
         view.addSubview(showAlertButton)
     }
-
+    
     @objc func showAlert() {
-        let alertController = UIAlertController(title: "Alert", message: "This is an alert message", preferredStyle: .alert)
-
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            print("Cancel button tapped")
+        let alertController = UIAlertController(title: "Оповещение", message: "Это сообщение оповещения", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel) { _ in
+            print("Нажата кнопка 'Отмена'")
         }
-
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            print("OK button tapped")
+        
+        let okAction = UIAlertAction(title: "ОК", style: .default) { _ in
+            print("Нажата кнопка 'ОК'")
         }
-
+        
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
-
+        
         present(alertController, animated: true, completion: nil)
     }
 }
-
-
