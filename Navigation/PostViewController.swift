@@ -13,9 +13,31 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let postTitle = post?.title {
-            title = postTitle
-        }
+        // Add info button to navigation bar
+        let infoButton = UIBarButtonItem(title: "Info", style: .plain, target: self, action: #selector(infoButtonTapped))
+        navigationItem.rightBarButtonItem = infoButton
+
+        // Set background color
         view.backgroundColor = UIColor.red
+    }
+
+    @objc func infoButtonTapped() {
+        // Create and present InfoViewController modally
+        let infoViewController = InfoViewController()
+        let navController = UINavigationController(rootViewController: infoViewController)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true, completion: nil)
+    }
+}
+
+class InfoViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Set title
+        title = "Info"
+
+        // Set background color
+        view.backgroundColor = UIColor.blue
     }
 }
