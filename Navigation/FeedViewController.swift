@@ -9,6 +9,8 @@ import UIKit
 
 class FeedViewController: UIViewController {
 
+    private let secondPost = Post(title: "PostViewController")
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +22,7 @@ class FeedViewController: UIViewController {
         button.setTitleColor(.blue, for: .normal)
 
         // Устанавливаем обработчик нажатия на кнопку
-        button.addTarget(self, action: #selector(goToPost), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
 
         // Отключаем автоматически сгенерированные констрейнты для кнопки
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -36,12 +38,10 @@ class FeedViewController: UIViewController {
     }
 
     // Обработчик нажатия на кнопку
-    @objc func goToPost() {
-        // Создаем экземпляр PostViewController
-        let postViewController = PostViewController()
-
-        // Осуществляем переход на экран PostViewController внутри UINavigationController
-        navigationController?.pushViewController(postViewController, animated: true)
-    }
+    @objc private func tapButton() {
+            let postVC = PostViewController()
+            postVC.post = secondPost
+            navigationController?.pushViewController(postVC, animated: true)
+        }
 
 }
