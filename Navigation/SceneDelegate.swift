@@ -25,6 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Set up tab bar controller with navigation controllers
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
+        tabBarController.tabBar.backgroundColor = UIColor.white
 
         // Set up window
         let window = UIWindow(windowScene: windowScene)
