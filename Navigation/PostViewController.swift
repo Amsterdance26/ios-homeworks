@@ -8,14 +8,14 @@
 import UIKit
 
 class PostViewController: UIViewController {
+    var post: Post?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Set the title of the view controller
-        title = "New Title"
-
-        // Set the background color of the main view
+        if let postTitle = post?.title {
+            title = postTitle
+        }
         view.backgroundColor = UIColor.red
     }
 }
