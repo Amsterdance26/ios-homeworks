@@ -12,18 +12,36 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
+        // Создаем кнопку
+        let button = UIButton()
 
-    /*
-    // MARK: - Navigation
+        // Устанавливаем текст на кнопке и цвет текста
+        button.setTitle("Перейти к посту", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        // Устанавливаем обработчик нажатия на кнопку
+        button.addTarget(self, action: #selector(goToPost), for: .touchUpInside)
+
+        // Отключаем автоматически сгенерированные констрейнты для кнопки
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        // Добавляем кнопку на экран
+        view.addSubview(button)
+
+        // Устанавливаем констрейнты для кнопки (центрируем ее на экране)
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
-    */
+
+    // Обработчик нажатия на кнопку
+    @objc func goToPost() {
+        // Создаем экземпляр PostViewController
+        let postViewController = PostViewController()
+
+        // Осуществляем переход на экран PostViewController внутри UINavigationController
+        navigationController?.pushViewController(postViewController, animated: true)
+    }
 
 }
