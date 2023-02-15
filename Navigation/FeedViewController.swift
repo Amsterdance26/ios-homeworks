@@ -11,37 +11,35 @@ class FeedViewController: UIViewController {
 
     private let secondPost = Post(title: "PostViewController")
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Создаем кнопку
+    private lazy var button: UIButton = {
         let button = UIButton()
-
-        // Устанавливаем текст на кнопке и цвет текста
         button.setTitle("Перейти к посту", for: .normal)
         button.setTitleColor(.blue, for: .normal)
-
-        // Устанавливаем обработчик нажатия на кнопку
         button.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
-
-        // Отключаем автоматически сгенерированные констрейнты для кнопки
         button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
-        // Добавляем кнопку на экран
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+        setupConstraints()
+    }
+
+    private func setupViews() {
         view.addSubview(button)
+    }
 
-        // Устанавливаем констрейнты для кнопки (центрируем ее на экране)
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 
-    // Обработчик нажатия на кнопку
     @objc private func tapButton() {
-            let postVC = PostViewController()
-            postVC.post = secondPost
-            navigationController?.pushViewController(postVC, animated: true)
-        }
-
+        let postVC = PostViewController()
+        postVC.post = secondPost
+        navigationController?.pushViewController(postVC, animated: true)
+    }
 }
