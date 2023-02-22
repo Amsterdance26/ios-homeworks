@@ -22,7 +22,7 @@ class PostViewController: UIViewController {
     @objc func infoButtonTapped() {
         let infoViewController = InfoViewController()
         let navController = UINavigationController(rootViewController: infoViewController)
-        navController.modalPresentationStyle = .pageSheet
+        navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true, completion: nil)
     }
 }
