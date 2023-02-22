@@ -72,6 +72,13 @@ class ProfileHeaderView: UIView {
         // Add name label as subview
         addSubview(nameLabel)
 
+        // Add constraints to name label
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 27),
+            nameLabel.centerXAnchor.constraint(equalTo: nameLabel.centerXAnchor)
+        ])
+
         // Set up status label
         statusLabel.text = "Waiting for something..."
         statusLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
