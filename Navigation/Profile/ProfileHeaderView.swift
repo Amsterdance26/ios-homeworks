@@ -11,9 +11,35 @@ class ProfileHeaderView: UIView {
     let avatarImageView = UIImageView()
     let nameLabel = UILabel()
     let statusLabel = UILabel()
+    let button = UIButton()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+
+        // Set up button
+        let button = UIButton()
+        button.backgroundColor = .systemBlue
+        button.setTitle("Show status", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        button.layer.cornerRadius = 8
+        button.layer.masksToBounds = false
+        button.layer.shadowOffset = CGSize(width: 4, height: 4)
+        button.layer.shadowRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.7
+
+
+        // Add button as subview
+        addSubview(button)
+
+        // Add button constraints
+        button.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 34),
+            button.heightAnchor.constraint(equalToConstant: 50)
+        ])
 
         // Set up avatar image view
         let avatarImage = UIImage(named: "Cat")
@@ -27,10 +53,21 @@ class ProfileHeaderView: UIView {
         // Add avatar image view as subview
         addSubview(avatarImageView)
 
+        // Add avatar image view constraints
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            avatarImageView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -16),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 60),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 60)
+        ])
+
+
         // Set up name label
         nameLabel.text = "White Cat"
         nameLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        nameLabel.textColor = .white
+        nameLabel.textColor = .black
 
         // Add name label as subview
         addSubview(nameLabel)
@@ -71,6 +108,13 @@ class ProfileHeaderView: UIView {
         let statusLabelOrigin = CGPoint(x: nameLabelOrigin.x, y: nameLabel.frame.maxY + 8)
         let statusLabelSize = statusLabel.sizeThatFits(CGSize(width: bounds.width - statusLabelOrigin.x - inset, height: bounds.height - statusLabelOrigin.y - inset))
         statusLabel.frame = CGRect(origin: statusLabelOrigin, size: statusLabelSize)
+
+        // Set button frame
+        let buttonHeight: CGFloat = 50
+        let buttonInset: CGFloat = 16
+        let buttonWidth = bounds.width - (buttonInset * 2)
+        let buttonOrigin = CGPoint(x: buttonInset, y: statusLabel.frame.maxY + buttonInset)
+        button.frame = CGRect(origin: buttonOrigin, size: CGSize(width: buttonWidth, height: buttonHeight))
 
         
 
