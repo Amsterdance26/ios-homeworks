@@ -28,6 +28,8 @@ class ProfileHeaderView: UIView {
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.7
 
+        // Add target to button
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
 
         // Add button as subview
         addSubview(button)
@@ -87,6 +89,15 @@ class ProfileHeaderView: UIView {
         // Add status label as subview
         addSubview(statusLabel)
 
+        // Add constraints to statusLabel
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            statusLabel.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -34),
+            statusLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            statusLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor)
+        ])
+
+
         
     }
 
@@ -123,7 +134,10 @@ class ProfileHeaderView: UIView {
         let buttonOrigin = CGPoint(x: buttonInset, y: statusLabel.frame.maxY + buttonInset)
         button.frame = CGRect(origin: buttonOrigin, size: CGSize(width: buttonWidth, height: buttonHeight))
 
-        
 
     }
+
+    @objc func buttonPressed() {
+            //обработчик нажатия кнопки
+        }
 }
