@@ -96,8 +96,6 @@ class ProfileHeaderView: UIView {
             statusLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             statusLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor)
         ])
-
-
         
     }
 
@@ -138,6 +136,7 @@ class ProfileHeaderView: UIView {
     }
 
     @objc func buttonPressed() {
-            //обработчик нажатия кнопки
-        }
+        guard let statusText = statusLabel.text else { return }
+        print("Status text: \(statusText)")
+    }
 }
