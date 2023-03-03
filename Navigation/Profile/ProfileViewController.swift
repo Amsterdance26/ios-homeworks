@@ -21,8 +21,7 @@ class ProfileViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
-        // Set headerView frame equal to the root view frame
-        let headerViewHeight: CGFloat = 220.0 // set headerView height
+        let headerViewHeight: CGFloat = 220.0
         let headerViewFrame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: headerViewHeight)
         headerView.frame = headerViewFrame
     }
