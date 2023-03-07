@@ -16,14 +16,14 @@ class ProfileViewController: UIViewController {
 
         self.view.addSubview(headerView)
         self.view.backgroundColor = UIColor.lightGray
-    }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+        headerView.translatesAutoresizingMaskIntoConstraints = false
 
-        let headerViewHeight: CGFloat = 220.0
-        let headerViewFrame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: headerViewHeight)
-        headerView.frame = headerViewFrame
+        NSLayoutConstraint.activate([
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: 220.0)
+        ])
     }
 }
-
