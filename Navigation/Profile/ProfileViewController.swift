@@ -14,9 +14,17 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.addSubview(headerView)
-        self.view.backgroundColor = UIColor.lightGray
+        view.backgroundColor = UIColor.lightGray
 
+        setupHeaderView()
+        setupConstraints()
+    }
+
+    private func setupHeaderView() {
+        view.addSubview(headerView)
+    }
+
+    private func setupConstraints() {
         headerView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
