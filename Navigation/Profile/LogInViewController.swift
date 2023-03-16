@@ -24,6 +24,10 @@ class LogInViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
 
+
+
+
+
         let imageView = UIImageView(image: UIImage(named: "Logo"))
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = false
@@ -52,6 +56,24 @@ class LogInViewController: UIViewController {
         passwordField.placeholder = "Password"
         contentView.addSubview(passwordField)
 
+        let loginButton = UIButton(type: .system)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.setTitle("Log in", for: .normal)
+        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.layer.cornerRadius = 10
+        loginButton.clipsToBounds = true
+        loginButton.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
+        loginButton.alpha = 1
+        loginButton.setBackgroundImage(UIImage(named: "blue_pixel"), for: .highlighted)
+        loginButton.alpha = 0.8
+        loginButton.setBackgroundImage(UIImage(named: "blue_pixel"), for: .selected)
+        loginButton.alpha = 0.8
+        loginButton.setBackgroundImage(UIImage(named: "blue_pixel"), for: .disabled)
+        loginButton.alpha = 0.8
+        contentView.addSubview(loginButton)
+        contentView.bringSubviewToFront(loginButton)
+
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -79,7 +101,12 @@ class LogInViewController: UIViewController {
             passwordField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             passwordField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             passwordField.heightAnchor.constraint(equalToConstant: 50),
-            passwordField.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            passwordField.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+
+            loginButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 16),
+            loginButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            loginButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            loginButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }
