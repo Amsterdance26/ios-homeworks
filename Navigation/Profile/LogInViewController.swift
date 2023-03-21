@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UITextFieldDelegate {
 
     let scrollView = UIScrollView()
     let contentView = UIView()
@@ -16,8 +16,9 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.isHidden = true
-
         view.backgroundColor = .white
+
+
 
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -70,6 +71,14 @@ class LogInViewController: UIViewController {
         contentView.addSubview(loginButton)
         contentView.bringSubviewToFront(loginButton)
 
+        textField.delegate = self
+        passwordField.delegate = self
+
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+                textField.resignFirstResponder()
+                return true
+            }
+
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -104,5 +113,9 @@ class LogInViewController: UIViewController {
             loginButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             loginButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
