@@ -18,8 +18,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .white
 
-
-
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
@@ -114,8 +112,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             loginButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }
