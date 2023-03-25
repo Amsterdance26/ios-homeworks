@@ -22,7 +22,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        
+
         let imageView = UIImageView(image: UIImage(named: "Logo"))
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = false
@@ -49,9 +49,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         passwordField.backgroundColor = UIColor.systemGray6
         passwordField.autocapitalizationType = .none
         passwordField.placeholder = "Password"
+        passwordField.isSecureTextEntry = true
         contentView.addSubview(passwordField)
 
         let loginButton = UIButton(type: .system)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.setTitle("Log in", for: .normal)
         loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
@@ -73,9 +75,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         passwordField.delegate = self
 
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-                textField.resignFirstResponder()
-                return true
-            }
+            textField.resignFirstResponder()
+            return true
+        }
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -116,5 +118,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+
+    @objc func loginButtonTapped() {
+        let loggedInViewController = LoggedInViewController()
+        navigationController?.pushViewController(loggedInViewController, animated: true)
     }
 }
