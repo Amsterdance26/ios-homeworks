@@ -121,7 +121,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func loginButtonTapped() {
-        let loggedInViewController = LoggedInViewController()
-        navigationController?.pushViewController(loggedInViewController, animated: true)
+        let profileViewController = ProfileViewController()
+        navigationController?.pushViewController(profileViewController, animated: true)
     }
 }
