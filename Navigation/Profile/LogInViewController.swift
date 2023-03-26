@@ -58,7 +58,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
     private var loginButton: UIButton = {
         let loginButton = UIButton()
-        loginButton.isEnabled = true
         loginButton.addTarget(nil, action: #selector(loginButtonTapped), for: .touchUpInside)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.setTitle("Log in", for: .normal)
