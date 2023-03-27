@@ -9,8 +9,6 @@ import UIKit
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
 
-
-
     private var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -106,8 +104,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         contentView.addSubview(stackView)
 
         [imageView, stackView, loginButton].forEach({ contentView.addSubview($0) })
-
-
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
