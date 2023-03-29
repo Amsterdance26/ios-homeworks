@@ -95,15 +95,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     func setup() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        [imageView, textField, passwordField, loginButton].forEach({ contentView.addSubview($0) })
+        [imageView, loginButton].forEach({ contentView.addSubview($0) })
+
         let stackView = UIStackView(arrangedSubviews: [textField, passwordField])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 0
         stackView.distribution = .fillEqually
         contentView.addSubview(stackView)
-
-        [imageView, stackView, loginButton].forEach({ contentView.addSubview($0) })
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -115,7 +114,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
             imageView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 120),
