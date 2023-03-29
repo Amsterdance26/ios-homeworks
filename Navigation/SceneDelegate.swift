@@ -23,14 +23,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         feedNavigationController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         let logInNavigationController = UINavigationController(rootViewController: logInViewController)
         logInNavigationController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
-        let postNavigationController = UINavigationController(rootViewController: postViewController)
-        postNavigationController.tabBarItem = UITabBarItem(title: "Пост", image: UIImage(systemName: "message.fill"), selectedImage: UIImage(systemName: "message.fill"))
+//        let postNavigationController = UINavigationController(rootViewController: postViewController)
+//        postNavigationController.tabBarItem = UITabBarItem(title: "Пост", image: UIImage(systemName: "message.fill"), selectedImage: UIImage(systemName: "message.fill"))
 
         let myPost = Post(title: "Мой новый пост")
         postViewController.post = myPost
 
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [feedNavigationController, logInNavigationController, postNavigationController]
+        tabBarController.viewControllers = [feedNavigationController, logInNavigationController]
         tabBarController.tabBar.backgroundColor = UIColor.white
 
         let window = UIWindow(windowScene: windowScene)

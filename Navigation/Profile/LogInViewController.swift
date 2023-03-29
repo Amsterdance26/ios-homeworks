@@ -33,10 +33,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         let textField = UITextField()
         let paddingViewTextField = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: textField.frame.height))
         textField.translatesAutoresizingMaskIntoConstraints = false
-        //textField.layer.borderColor = UIColor.lightGray.cgColor
-        //textField.layer.borderWidth = 0.5
-        //textField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        //textField.backgroundColor = UIColor.systemGray6
         textField.autocapitalizationType = .none
         textField.placeholder = "Email or phone"
         textField.leftView = paddingViewTextField
@@ -56,10 +52,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         let passwordField = UITextField()
         let paddingViewPasswordField = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: passwordField.frame.height))
         passwordField.translatesAutoresizingMaskIntoConstraints = false
-        //passwordField.layer.borderColor = UIColor.lightGray.cgColor
-        //passwordField.layer.borderWidth = 0.5
-        //passwordField.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        //passwordField.backgroundColor = UIColor.systemGray6
         passwordField.autocapitalizationType = .none
         passwordField.placeholder = "Password"
         passwordField.isSecureTextEntry = true
