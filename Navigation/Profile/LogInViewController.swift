@@ -46,9 +46,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
     private var lineView: UIView = {
         let lineView = UIView()
-        lineView.backgroundColor = .black
+        lineView.backgroundColor = UIColor.gray
         lineView.translatesAutoresizingMaskIntoConstraints = false
-        lineView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+
         return lineView
     }()
 
@@ -109,6 +109,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         stackView.spacing = 0
         stackView.distribution = .fillEqually
         contentView.addSubview(stackView)
+        contentView.addSubview(lineView)
 
 
         stackView.layer.cornerRadius = 10
@@ -138,6 +139,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             textField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             textField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             textField.heightAnchor.constraint(equalToConstant: 50),
+
+
+            lineView.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 0),
+            lineView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            lineView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            lineView.heightAnchor.constraint(equalToConstant: 0.5),
 
             passwordField.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 0),
             passwordField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
