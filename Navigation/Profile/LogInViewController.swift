@@ -44,6 +44,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         return textField
     }()
 
+    private var lineView: UIView = {
+        let lineView = UIView()
+        lineView.backgroundColor = .black
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        lineView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+        return lineView
+    }()
+
     private var passwordField: UITextField = {
         let passwordField = UITextField()
         let paddingViewPasswordField = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: passwordField.frame.height))
@@ -95,7 +103,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         scrollView.addSubview(contentView)
         [imageView, loginButton].forEach({ contentView.addSubview($0) })
 
-        let stackView = UIStackView(arrangedSubviews: [textField, passwordField])
+        let stackView = UIStackView(arrangedSubviews: [textField, lineView, passwordField])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 0
