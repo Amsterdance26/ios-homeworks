@@ -63,19 +63,19 @@ import UIKit
             return button
         }()
 
-        private let newButton: UIButton = {
-            let button = UIButton()
-            button.backgroundColor = .red
-            button.setTitle("New Button", for: .normal)
-            button.layer.cornerRadius = 4
-            button.layer.masksToBounds = false
-            button.layer.shadowOffset = CGSize(width: 4, height: 4)
-            button.layer.shadowRadius = 4
-            button.layer.shadowColor = UIColor.black.cgColor
-            button.layer.shadowOpacity = 0.7
-            button.translatesAutoresizingMaskIntoConstraints = false
-            return button
-        }()
+//        private let newButton: UIButton = {
+//            let button = UIButton()
+//            button.backgroundColor = .red
+//            button.setTitle("New Button", for: .normal)
+//            button.layer.cornerRadius = 4
+//            button.layer.masksToBounds = false
+//            button.layer.shadowOffset = CGSize(width: 4, height: 4)
+//            button.layer.shadowRadius = 4
+//            button.layer.shadowColor = UIColor.black.cgColor
+//            button.layer.shadowOpacity = 0.7
+//            button.translatesAutoresizingMaskIntoConstraints = false
+//            return button
+//        }()
 
         override init(frame: CGRect) {
             super.init(frame: frame)
