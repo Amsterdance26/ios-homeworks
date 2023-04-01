@@ -13,7 +13,7 @@ import UIKit
             let imageView = UIImageView()
             imageView.image = UIImage(named: "Cat")
             imageView.contentMode = .scaleAspectFill
-            imageView.layer.cornerRadius = 30
+            imageView.layer.cornerRadius = 50
             imageView.layer.masksToBounds = true
             imageView.layer.borderWidth = 3
             imageView.layer.borderColor = UIColor.white.cgColor
@@ -43,15 +43,17 @@ import UIKit
             let textField = UITextField()
             textField.placeholder = "Enter new status"
             textField.borderStyle = .roundedRect
+            textField.layer.cornerRadius = 5
             textField.translatesAutoresizingMaskIntoConstraints = false
             return textField
         }()
+
 
         private let setStatusButton: UIButton = {
             let button = UIButton()
             button.backgroundColor = .systemBlue
             button.setTitle("Set status", for: .normal)
-            button.layer.cornerRadius = 4
+            button.layer.cornerRadius = 10
             button.layer.masksToBounds = false
             button.layer.shadowOffset = CGSize(width: 4, height: 4)
             button.layer.shadowRadius = 4
@@ -90,34 +92,42 @@ import UIKit
             addSubview(statusLabel)
             addSubview(statusTextField)
             addSubview(setStatusButton)
-            addSubview(newButton)
+            //addSubview(newButton)
 
 
             NSLayoutConstraint.activate([
                 avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
                 avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-                avatarImageView.widthAnchor.constraint(equalToConstant: 60),
-                avatarImageView.heightAnchor.constraint(equalToConstant: 60),
+                avatarImageView.widthAnchor.constraint(equalToConstant: 100),
+                avatarImageView.heightAnchor.constraint(equalToConstant: 100),
 
-                fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+
+                fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor, constant: 100),
                 fullNameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
 
-                statusLabel.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
-                statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 8),
+                statusLabel.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor, constant: 0),
+                statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 60),
 
                 statusTextField.leadingAnchor.constraint(equalTo: statusLabel.leadingAnchor),
-                statusTextField.trailingAnchor.constraint(equalTo: setStatusButton.leadingAnchor, constant: -8),
+                statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
                 statusTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 8),
 
+                setStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
                 setStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-                setStatusButton.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 8),
-                setStatusButton.widthAnchor.constraint(equalToConstant: 80),
-                setStatusButton.heightAnchor.constraint(equalToConstant: 36),
+                setStatusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 8),
+                setStatusButton.heightAnchor.constraint(equalToConstant: 50),
 
-                newButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-                newButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-                newButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-                newButton.heightAnchor.constraint(equalToConstant: 36)
+                statusTextField.trailingAnchor.constraint(equalTo: setStatusButton.leadingAnchor, constant: -8),
+                setStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+
+
+
+
+
+//                newButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+//                newButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+//                newButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+//                newButton.heightAnchor.constraint(equalToConstant: 36)
             ])
 
             setStatusButton.addTarget(self, action: #selector(setStatus), for: .touchUpInside)
