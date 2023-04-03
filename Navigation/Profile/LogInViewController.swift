@@ -80,6 +80,20 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         return loginButton
     }()
 
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [textField, lineView, passwordField])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 0
+        stackView.distribution = .fillEqually
+        stackView.layer.cornerRadius = 10
+        stackView.layer.masksToBounds = true
+        stackView.layer.borderWidth = 0.5
+        stackView.backgroundColor = UIColor.systemGray6
+        stackView.layer.borderColor = UIColor.lightGray.cgColor
+        return stackView
+        }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -91,24 +105,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
 
     func setup() {
+        [imageView, loginButton].forEach({ contentView.addSubview($0) })
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        [imageView, loginButton].forEach({ contentView.addSubview($0) })
-
-        let stackView = UIStackView(arrangedSubviews: [textField, lineView, passwordField])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 0
-        stackView.distribution = .fillEqually
         contentView.addSubview(stackView)
         contentView.addSubview(lineView)
-
-
-        stackView.layer.cornerRadius = 10
-        stackView.layer.masksToBounds = true
-        stackView.layer.borderWidth = 0.5
-        stackView.backgroundColor = UIColor.systemGray6
-        stackView.layer.borderColor = UIColor.lightGray.cgColor
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
