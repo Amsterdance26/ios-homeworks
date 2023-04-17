@@ -8,7 +8,7 @@
 import UIKit
 
 class FeedViewController: UIViewController {
-    private let secondPost = Post(title: "PostViewController")
+    private let secondPost = Post(title: "PostViewController", description: "Описание поста", image: "image_name", likes: 0, views: 0)
 
     private lazy var button: UIButton = {
         let button = UIButton()
