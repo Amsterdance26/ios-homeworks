@@ -7,18 +7,14 @@
 
 import UIKit
 
-struct PostWithStruct {
-    var author: String
-    var description: String
-    var image: String
-    var likes: Int
-    var views: Int
-
-    init(author: String, description: String, image: String, likes: Int, views: Int) {
-        self.author = author
-        self.description = description
-        self.image = image
-        self.likes = likes
-        self.views = views
-    }
+struct Post {
+    let title: String
+    let description: String
+    let image: String
+    let likes: Int
+    let views: Int
+}
+struct Posts {
+    static var posts: [Post] = [Post(title: "", description: "", image: "", likes: 0, views: 0),
+                            Post(title: "", description: "", image: "", likes: 0, views: 0)]
 }
