@@ -9,8 +9,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    let headerView = ProfileTableHeaderView()
     let tableView = UITableView()
-    let headerView = ProfileTableHeaderView() // создаем экземпляр ProfileTableHeaderView
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +27,18 @@ class ProfileViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PostCell")
+        tableView.tableHeaderView = nil
+        tableView.delegate = self
 
-        tableView.tableHeaderView = headerView
     }
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Posts.posts.count
     }
@@ -43,5 +49,13 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = post.title
         cell.detailTextLabel?.text = post.description
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return headerView
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 200
     }
 }
