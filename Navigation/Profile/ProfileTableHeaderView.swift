@@ -11,7 +11,6 @@ class ProfileTableHeaderView: UIView {
     private let headerView: ProfileHeaderView = {
         let view = ProfileHeaderView()
         view.backgroundColor = .white
-        view.layer.cornerRadius = 10
         return view
     }()
 
