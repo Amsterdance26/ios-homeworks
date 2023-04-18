@@ -104,10 +104,6 @@ import UIKit
                 statusTextField.trailingAnchor.constraint(equalTo: setStatusButton.leadingAnchor, constant: -8),
                 setStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
 
-//                newButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-//                newButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-//                newButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-//                newButton.heightAnchor.constraint(equalToConstant: 36)
             ])
 
             setStatusButton.addTarget(self, action: #selector(setStatus), for: .touchUpInside)

@@ -143,7 +143,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             passwordField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             passwordField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             passwordField.heightAnchor.constraint(equalToConstant: 50),
-//            passwordField.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -16),
 
             loginButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 16),
             loginButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
