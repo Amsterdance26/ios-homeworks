@@ -23,7 +23,7 @@ class PostVC: UIViewController {
         present(infoViewController, animated: true)
     }
     func setupView() {
-        self.view.backgroundColor = .lightGray
+        self.view.backgroundColor = .red
         self.navigationItem.title = titlePost
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }

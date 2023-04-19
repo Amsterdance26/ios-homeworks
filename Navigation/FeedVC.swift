@@ -13,23 +13,24 @@ class FeedVC: UIViewController {
     private lazy var button1: UIButton = {
         let button1 = UIButton()
         button1.backgroundColor = .red
-        button1.layer.cornerRadius = 10
+        button1.layer.cornerRadius = 5
         button1.setTitle("Пост № 1", for: .normal)
-        button1.setTitleColor(.white, for: .normal)
-        button1.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button1.setTitleColor(.black, for: .normal)
+        button1.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button1.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button1
     }()
     private lazy var button2: UIButton = {
         let button2 = UIButton()
         button2.backgroundColor = .green
-        button2.layer.cornerRadius = 10
+        button2.layer.cornerRadius = 5
         button2.setTitle("Пост № 2", for: .normal)
-        button2.setTitleColor(.white, for: .normal)
-        button2.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button2.setTitleColor(.black, for: .normal)
+        button2.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button2.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button2
     }()
+
     private var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
