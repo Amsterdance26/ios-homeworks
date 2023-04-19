@@ -14,7 +14,7 @@ final class ProfileHeaderView: UIView, UITextFieldDelegate {
         view.layer.cornerRadius = 40
         view.clipsToBounds = true
         view.layer.borderWidth = 3
-        view.layer.borderColor = UIColor.white.cgColor
+        view.layer.borderColor = UIColor.lightGray.cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -69,7 +69,7 @@ final class ProfileHeaderView: UIView, UITextFieldDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureContents()
-        backgroundColor = .systemGray6
+        //backgroundColor = .systemGray6
     }
     func configureContents() {
         addSubview(avatarImageView)
