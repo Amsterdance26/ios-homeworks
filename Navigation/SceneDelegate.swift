@@ -9,33 +9,56 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
         guard let windowScene = (scene as? UIWindowScene) else { return }
-
-        let feedViewController = FeedViewController()
-        let postViewController = PostViewController()
-        let logInViewController = LogInViewController()
-
-        let feedNavigationController = UINavigationController(rootViewController: feedViewController)
-        feedNavigationController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
-        let logInNavigationController = UINavigationController(rootViewController: logInViewController)
-        logInNavigationController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
-//        let postNavigationController = UINavigationController(rootViewController: postViewController)
-//        postNavigationController.tabBarItem = UITabBarItem(title: "Пост", image: UIImage(systemName: "message.fill"), selectedImage: UIImage(systemName: "message.fill"))
-
-        let myPost = Post(title: "Мой новый пост", description: "Описание моего нового поста", image: "image_name", likes: 0, views: 0)
-        postViewController.post = myPost
-
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [feedNavigationController, logInNavigationController]
-        tabBarController.tabBar.backgroundColor = UIColor.white
-
-        let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = tabBarController
-        self.window = window
-        window.makeKeyAndVisible()
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController =  createTabBarController()
+        window?.makeKeyAndVisible()
     }
+
+    func createFeedViewController() -> UINavigationController {
+        let feedViewController = FeedVC()
+        feedViewController.title = "Feed"
+        feedViewController.tabBarItem = UITabBarItem(
+            title: "Feed",
+            image: UIImage(systemName: "house.fill"),
+            tag: 0
+        )
+        return UINavigationController(rootViewController: feedViewController)
+    }
+
+    func createProfileViewController() -> UINavigationController {
+        let logInViewController = LogInVC()
+        logInViewController.tabBarItem = UITabBarItem(
+            title: "Profile",
+            image: UIImage(systemName: "person.fill"),
+            tag: 1
+        )
+        return UINavigationController(rootViewController: logInViewController)
+    }
+
+    func createTabBarController() -> UITabBarController {
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [createFeedViewController(), createProfileViewController()]
+        UITabBar.appearance().backgroundColor = .systemGray2
+        return tabBarController
+    }
+}
+
+func sceneDidDisconnect(_ scene: UIScene) {
+}
+
+func sceneDidBecomeActive(_ scene: UIScene) {
+}
+
+func sceneWillResignActive(_ scene: UIScene) {
+}
+
+func sceneWillEnterForeground(_ scene: UIScene) {
+}
+
+func sceneDidEnterBackground(_ scene: UIScene) {
 }
