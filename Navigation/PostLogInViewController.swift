@@ -18,7 +18,6 @@ class PostLogInViewController: UIViewController {
     }
     @objc func buttonPressed(_sender: UIButton) {
         let infoViewController = InfoViewController()
-        infoViewController.modalTransitionStyle = .flipHorizontal
         infoViewController.modalPresentationStyle = .pageSheet
         present(infoViewController, animated: true)
     }
