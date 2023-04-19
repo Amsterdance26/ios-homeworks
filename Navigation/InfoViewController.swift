@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InfoVC: UIViewController {
+class InfoViewController: UIViewController {
 
     private lazy var button: UIButton = {
         let button = UIButton()

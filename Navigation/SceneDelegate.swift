@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func createFeedViewController() -> UINavigationController {
-        let feedViewController = FeedVC()
+        let feedViewController = FeedViewController()
         feedViewController.title = "Feed"
         feedViewController.tabBarItem = UITabBarItem(
             title: "Feed",
@@ -31,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func createProfileViewController() -> UINavigationController {
-        let logInViewController = LogInVC()
+        let logInViewController = LogInViewController()
         logInViewController.tabBarItem = UITabBarItem(
             title: "Profile",
             image: UIImage(systemName: "person.fill"),

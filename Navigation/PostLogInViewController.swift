@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PostVC: UIViewController {
+class PostLogInViewController: UIViewController {
 
     var titlePost: String = "Posts"
     override func viewDidLoad() {
@@ -17,7 +17,7 @@ class PostVC: UIViewController {
         setupView()
     }
     @objc func buttonPressed(_sender: UIButton) {
-        let infoViewController = InfoVC()
+        let infoViewController = InfoViewController()
         infoViewController.modalTransitionStyle = .flipHorizontal
         infoViewController.modalPresentationStyle = .pageSheet
         present(infoViewController, animated: true)

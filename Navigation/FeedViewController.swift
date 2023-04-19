@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FeedVC: UIViewController {
+class FeedViewController: UIViewController {
 
     var post = Post(title: "Мой пост")
     private lazy var button1: UIButton = {
@@ -50,7 +50,7 @@ class FeedVC: UIViewController {
         stackView.addArrangedSubview(self.button2)
     }
     @objc private func buttonAction() {
-        let postViewController = PostVC()
+        let postViewController = PostLogInViewController()
         self.navigationController?.pushViewController(postViewController, animated: true)
         postViewController.titlePost = post.title
     }

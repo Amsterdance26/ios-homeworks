@@ -28,7 +28,7 @@ class CustomButton: UIButton {
     }
 }
 
-class LogInVC: UIViewController, UIScrollViewDelegate {
+class LogInViewController: UIViewController, UIScrollViewDelegate {
 
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -212,7 +212,7 @@ class LogInVC: UIViewController, UIScrollViewDelegate {
         notificationCenter.removeObserver(self)
     }
 }
-extension LogInVC: UITextFieldDelegate {
+extension LogInViewController: UITextFieldDelegate {
     func textFieldShouldReturn(
         _ textField: UITextField
     ) -> Bool {
