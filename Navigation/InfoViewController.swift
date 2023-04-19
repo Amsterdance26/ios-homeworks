@@ -16,7 +16,6 @@ class InfoViewController: UIViewController {
         button.setTitle("Редактировать", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        //button.addTarget(self, action: #selector(alertVC), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -24,7 +23,6 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .green
         setupButton()
-        //alertVC()
     }
     private func setupButton() {
         self.view.addSubview(self.button)
@@ -35,16 +33,4 @@ class InfoViewController: UIViewController {
             button.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
-//    @objc private func alertVC() {
-//        let alert = UIAlertController(
-//            title: "Удалить новый пост?",
-//            message: "Нажмите да, если хотите удалить новый пост",
-//            preferredStyle: .actionSheet)
-//        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: {action in print("Yes") } ))
-//        alert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: {action in self.cancelButton(); print("No") } ))
-//        self.present(alert, animated: true)
-//    }
-//    func cancelButton() {
-//        dismiss(animated: true)
-//    }
 }
