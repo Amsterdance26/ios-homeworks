@@ -38,7 +38,7 @@ class FeedViewController: UIViewController {
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         stackView.alignment = .center
-        stackView.spacing = 10
+        stackView.spacing = 50
         return stackView
     }()
     override func viewDidLoad() {
